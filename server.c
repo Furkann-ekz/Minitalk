@@ -33,9 +33,6 @@ void	signal_handler(int sig)
 
 int	main(void)
 {
-	int	i;
-
-	i = 0;
 	ft_printf("%d\n", getpid());
 	signal(SIGUSR1, signal_handler);
 	signal(SIGUSR2, signal_handler);
