@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   client.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fekiz <fekiz@student.42istanbul.com.tr     +#+  +:+       +#+        */
+/*   By: fekiz <fekiz@student.42istanbul.com.tr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/29 15:00:12 by fekiz             #+#    #+#             */
-/*   Updated: 2023/11/30 19:37:07 by fekiz            ###   ########.fr       */
+/*   Created: 2025/10/26 18:33:17 by fekiz             #+#    #+#             */
+/*   Updated: 2025/10/26 18:59:42 by fekiz            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,8 @@ int	ft_atoi(const char *str)
 	}
 	while (str[i] >= '0' && str[i] <= '9')
 	{
+		if (!(str[i] >= '0' && str[i] <= '9'))
+			return (-1);
 		count = (str[i] - 48) + (10 * count);
 		i++;
 	}
@@ -51,7 +53,7 @@ void	signal_giver(int pid, unsigned char c)
 		else
 			kill(pid, SIGUSR2);
 		i++;
-		usleep (50);
+		usleep (500);
 	}
 }
 
@@ -60,7 +62,7 @@ int	main(int argc, char **argv)
 	int	i;
 
 	i = -1;
-	if (argc != 3)
+	if (argc != 3 || ft_atoi(argv[1]) == -1)
 	{
 		write (1, "Gecersiz kullanim. ", 19);
 		write (1, "Lutfen ./client <PID> <MESSAGE> ", 32);

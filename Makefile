@@ -21,20 +21,20 @@ all: $(NAME_S) $(NAME_C)
 	rm -rf $(OBJS_S) $(OBJS_C)
 
 $(NAME_S): $(OBJS_S)
-	gcc $(CFLAGS) $(OBJS_S) -o $(NAME_S)
+	cc $(CFLAGS) $(OBJS_S) -o $(NAME_S)
 
 $(NAME_C): $(OBJS_C)
-	gcc $(CFLAGS) $(OBJS_C) -o ${NAME_C}
+	cc $(CFLAGS) $(OBJS_C) -o ${NAME_C}
 
 
 bonus: $(NAME_BS) $(NAME_BC)
 	rm -rf $(OBJS_BS) $(OBJS_BC)
 
 $(NAME_BS): $(OBJS_BS)
-	gcc $(CFLAGS) $(OBJS_BS) -o $(NAME_BS)
+	cc $(CFLAGS) $(OBJS_BS) -o $(NAME_BS)
 
 $(NAME_BC): $(OBJS_BC)
-	gcc $(CFLAGS) $(OBJS_BC) -o $(NAME_BC)
+	cc $(CFLAGS) $(OBJS_BC) -o $(NAME_BC)
 
 clean:
 	rm -rf $(OBJS_SRCS) $(OBJS_S) $(OBJS_C) $(OBJS_BS) $(OBJS_BC)
